@@ -1,5 +1,6 @@
 class Good < ApplicationRecord
   require 'csv'
+
   validates :name, presence: true
   validates :category, presence: true
   validates :source, presence: true
@@ -17,6 +18,15 @@ class Good < ApplicationRecord
       else
         create!(goods_hash)
       end
+    end
+  end
+
+  def self.search(search)
+    sql_search = "name ILIKE :search OR consignment ILIKE :search OR category ILIKE :search OR destination ILIKE :search OR source ILIKE :search"
+    if search
+      where(sql_search, search: "%#{search}%")
+    else
+      unscoped
     end
   end
 end
