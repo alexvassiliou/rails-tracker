@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :goods do
-    collection { post :import}
+    collection { post :import }
   end
 
   root to: 'goods#index'

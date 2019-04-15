@@ -1,26 +1,32 @@
-<h1 class="display-4">Goods</h1>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-current-tab" data-toggle="tab" href="#nav-current" role="tab" aria-controls="nav-current" aria-selected="true">Current</a>
 
-<table class="table table-striped table-bordered">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Category</th>
-      <th scope="col">Source</th>
-      <th scope="col">Destination</th>
-      <th scope="col">Consignment</th>
-      <th scope="col">Entry At</th>
-    </tr>
-  </thead>
-  <tbody>
+    <a class="nav-item nav-link" id="nav-shipped-tab" data-toggle="tab" href="#nav-shipped" role="tab" aria-controls="nav-shipped" aria-selected="false">Shipped</a>
+
+    <a class="nav-item nav-link" id="nav-import-tab" data-toggle="tab" href="#nav-import" role="tab" aria-controls="nav-import" aria-selected="false">Import File</a>
+
+  </div>
+</nav>
+
+<br>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-current" role="tabpanel" aria-labelledby="nav-current-tab">
     <%= render 'current_stock' %>
-  </tbody>
-</table>
+  </div>
 
-<div>
-  <h4>Import</h4>
-   <%= form_tag import_goods_path,  multipart: true do %>
-     <%= file_field_tag :file %>
-     <%= submit_tag "Import CSV" %>
-   <% end %>
+  <div class="tab-pane fade" id="nav-shipped" role="tabpanel" aria-labelledby="nav-shipped-tab">
+    <%= render 'shipped_stock' %>
+  </div>
+
+  <div class="tab-pane fade" id="nav-import" role="tabpanel" aria-labelledby="nav-import-tab">
+    <%= render 'import_file' %>
+  </div>
 </div>
+
+
+
+
+
 
