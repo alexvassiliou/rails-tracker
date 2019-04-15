@@ -7,7 +7,10 @@ class GoodsController < ApplicationController
 
   def import
     Good.import(params[:file])
-    redirect_to root_url, notice: "file uploaded!"
+    rescue
+      redirect_to root_url, notice: "FILE UPLOAD FAILED"
+    else
+      redirect_to root_url, notice: "FILE UPLOADED"
   end
 
   private

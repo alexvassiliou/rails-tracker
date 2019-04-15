@@ -1,7 +1,19 @@
 <div>
   <h4>Import</h4>
+  <ol><br>
+    <li>Document must be uploaded in CSV format</li><br>
+    <li>You can use this <%= link_to "Template", "https://docs.google.com/spreadsheets/d/1HILoCVIAi7GFAlFOgM-Lxs7K98B7Op_9pehOUTou2lg/edit?usp=sharing", :target => "_blank"%> to create your file</li><br>
+    <li>Alternatively, if you are using a text editor ensure the headers on the CSV file use the following format:
+      <ul><br>
+        <li>name,category,source,destination,consignment,entry_at,exit_at</li>
+      </ul>
+    </li><br>
+  </ol>
    <%= form_tag import_goods_path,  multipart: true do %>
      <%= file_field_tag :file %>
      <%= submit_tag "Import CSV" %>
    <% end %>
 </div>
+
+
+
