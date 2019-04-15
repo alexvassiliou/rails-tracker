@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "clearing database"
+
+Good.destroy_all
+
+puts "adding goods to database"
+
+
+counter = 0
+100.times do |x|
+  Good.create!(
+    name: Faker::Commerce.product_name,
+    category: Faker::Commerce.department(1, true),
+    source: Faker::Address.city,
+    destination: Faker::Address.city,
+    consignment: "AA00" + "#{counter += x}",
+    entry_at: Faker::Date.backward(5),
+    exit_at: nil
+    )
+end
