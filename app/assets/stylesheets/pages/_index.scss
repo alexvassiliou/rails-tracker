@@ -1,2 +1,20 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.pretty th .current {
+  padding-right: 40px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .sort {
+  background-image: url("https://img.icons8.com/material/24/000000/sorting-arrows.png");
+}
+
+.pretty th .asc {
+  background-image: url("https://img.icons8.com/material/24/000000/up.png");
+}
+
+.pretty th .desc {
+  background-image: url("https://img.icons8.com/material/24/000000/down.png");
+}

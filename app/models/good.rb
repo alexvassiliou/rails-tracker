@@ -11,7 +11,7 @@ class Good < ApplicationRecord
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       goods_hash = row.to_hash
-      existing_records = where(consignment: goods_hash["consignment"])
+      existing_records = where(consignment: goods_hash["consignment"], name: goods_hash["name"])
 
       if existing_records.present?
         existing_records.first.update_attributes(goods_hash)
