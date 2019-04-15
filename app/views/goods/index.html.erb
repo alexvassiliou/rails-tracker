@@ -1,2 +1,26 @@
-<h1>Goods#index</h1>
-<p>Find me in app/views/goods/index.html.erb</p>
+<h1 class="display-4">Goods</h1>
+
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Source</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Consignment</th>
+      <th scope="col">Entry At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render 'current_stock' %>
+  </tbody>
+</table>
+
+<div>
+  <h4>Import</h4>
+   <%= form_tag import_goods_path,  multipart: true do %>
+     <%= file_field_tag :file %>
+     <%= submit_tag "Import CSV" %>
+   <% end %>
+</div>
+

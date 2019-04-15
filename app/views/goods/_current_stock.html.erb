@@ -1,0 +1,10 @@
+<% @goods.each do |good| %>
+  <tr>
+    <td><%= good.name %></td>
+    <td><%= good.category %></td>
+    <td><%= good.source %></td>
+    <td><%= good.destination %></td>
+    <td><%= good.consignment %></td>
+    <td><%= good.entry_at %></td>
+  </tr>
+<% end %>
