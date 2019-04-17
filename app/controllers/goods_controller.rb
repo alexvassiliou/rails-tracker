@@ -2,7 +2,8 @@ class GoodsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @goods = Good.search(params[:search]).order(sort_column + " " + sort_direction)
+    @goods = Good.search(params[:search]).order(sort_column + " " + sort_direction).paginate(page: params[:goods_page], :per_page => 10)
+
   end
 
   def import

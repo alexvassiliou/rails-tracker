@@ -17,6 +17,7 @@
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-current" role="tabpanel" aria-labelledby="nav-current-tab">
     <%= render 'current_stock' %>
+    <%= will_paginate @goods, :param_name => 'goods_page'  %>
   </div>
 
   <div class="tab-pane fade" id="nav-shipped" role="tabpanel" aria-labelledby="nav-shipped-tab">
